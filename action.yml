@@ -1,0 +1,45 @@
+name: oction-merge-pull-request
+description: |
+  This action implements `PUT` request to `/repos/{owner}/{repo}/pulls/{pull_number}/merge`
+
+inputs:
+  token:
+    description: |
+      Token to authenticate the request
+    required: true
+  owner:
+    description: |
+      owner parameter
+    required: false
+  repo:
+    description: |
+      repo parameter
+    required: false
+  pull_number:
+    description: |
+      pull_number parameter
+    required: true
+  commit_title:
+    description: |
+      Title for the automatic commit message.
+    required: 
+  commit_message:
+    description: |
+      Extra detail to append to automatic commit message.
+    required: 
+  sha:
+    description: |
+      SHA that pull request head must match to allow merge.
+    required: 
+  merge_method:
+    description: |
+      Merge method to use. Possible values are `merge`, `squash` or `rebase`. Default is `merge`.
+    required: 
+
+runs:
+  using: node12
+  main: index.js
+
+branding:
+  icon: git-pull-request
+  color: green
